@@ -1,0 +1,11 @@
+body, td, p, pre, textarea, input, form, h1, h2, h3 { font-family: Monaco, monospace; }
+body { max-width: 80ex; margin: 0; padding: -10px; }
+body { background-color: #17181C; color: #E8E8E8; }
+a { color: #f90; text-decoration: underline; font-weight: bold; }
+a:active { color: #f93; }
+a:visited { color: #fc0; }
+::selection
+{
+	background-color: #16A88A;
+	color: #1E2229;
+}
