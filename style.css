@@ -1,0 +1,9 @@
+body, td, p, pre, textarea, input, form, h1, h2, h3 { font-family: Monaco, monospace; }
+body { background-color: #17181C; color: #E8E8E8; max-width:750; line-height:1.8; font-size:16px; padding:0 10px; }
+.container{max-width:800px; margin: 0 auto; padding: 20px; }
+.center-text { display: flex; justify-content: center; align-items: center; text-align: left;}
+h1{margin-bottom: 20px;}
+a { color: #f90; text-decoration: underline; font-weight: bold; }
+a:active { color: #f93; }
+a:visited { color: #fc0; }
+::selection { background-color: #16A88A; color: #1E2229;}
