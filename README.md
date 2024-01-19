@@ -5,9 +5,9 @@ Welcome to my Room, this is personal website/blog, hosted on GitHub Pages. The w
 Check out [The blog-announcement](https://3omdaughh.github.io/Blog-Announcement.html) for more information about the project.
 
 ## Goal
--Provide you with insights into my mind
--Allowing you to know more about me
--Understanding my thought process
+- Provide you with insights into my mind
+- Allowing you to know more about me
+- Understanding my thought process
 
 ## Tech Stack
 - HTML
