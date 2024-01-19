@@ -20,4 +20,4 @@ No frameworks or blog services were used to allow instantaneous loading times. C
 Feel free to reuse any part of this code for your own projects. The source code is meant to be simple and easy to understand, not optimized for reusability.
 
 ## License
-This project is licensed under the terms of the GPL-2 license. See the LICENSE file for more information.
+This project is licensed under the terms of the GPL-3 license. See the LICENSE file for more information.
