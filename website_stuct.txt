@@ -1,0 +1,19 @@
+/website
+    ├── index.html(Home)
+	├── aboutme.html
+		└── Blog-Announcement
+	└── Blog.html
+		└── Index-B
+			└── :Blogs?
+	└── WIDU.html
+		└── index-W
+			└── Games
+			└── Music
+			└── Seriess
+	└── GIT.html
+		└── Linkedin
+		└── Gmail
+		└── Insta
+		└── Reddit
+		└── Mastodon
+		└── Last.fm
