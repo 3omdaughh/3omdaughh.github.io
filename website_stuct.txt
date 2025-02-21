@@ -1,19 +1,64 @@
-/website
-    ├── index.html(Home)
-	├── aboutme.html
-		└── Blog-Announcement
-	└── Blog.html
-		└── Index-B
-			└── :Blogs?
-	└── WIDU.html
-		└── index-W
-			└── Games
-			└── Music
-			└── Seriess
-	└── GIT.html
-		└── Linkedin
-		└── Gmail
-		└── Insta
-		└── Reddit
-		└── Mastodon
-		└── Last.fm
+#Old website structure 
+
+3omdaughh.github.io/
+├── AboutMe.html
+├── Blog-Announcement.html
+├── BlogChapters
+│   ├── Am_I_enough!_Am_I?.html
+│   ├── c2html.c
+│   ├── index.html
+│   └── style.css
+├── GIT.html
+├── index.html
+├── LICENSE
+├── README.md
+├── style.css
+└── WIDU
+    ├── Animes.html
+    ├── Games.html
+    ├── index.html
+    ├── Music.html
+    └── style.css
+
+
+/////////////////////////////////////////////////////////////////
+
+#New website structure
+
+3omdaughh.github.io/
+├── AboutMe.html //To be updated
+├── Blog-Announcement.html
+├── BlogChapters
+│   ├── Am_I_enough!_Am_I?.html
+│   ├── c2html.c
+│   ├── index.html
+│   └── style.css
+├── GIT.html //To be updated
+├── index.html //To be updated
+├── LICENSE
+├── README.md //To be updated
+├── style.css
+├─ WIDU //To be Deleted
+│     ├── Animes.html
+│     ├── Games.html
+│     ├── index.html
+│     ├── Music.html
+│     └── style.css
+└── Philosophy //New section to talk about my philosophy in life 
+
+/////////////////////////////////////////////////////////////////
+
+#The Demonstration of the new structure 
+
+
+3omdaughh.github.io/
+├── AboutMe.html //To be updated
+├── Blog-Announcement.html
+├── BlogChapters
+│   ├── Am_I_enough!_Am_I?.html
+│   ├── c2html.c
+│   ├── index.html
+│   └── style.css
+├── GIT.html //To be updated
+├── index.html //To be updated
+└── Philosophy //New section to talk about my philosophy in life 
