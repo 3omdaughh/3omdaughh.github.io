@@ -36,8 +36,8 @@ int main()
     fprintf(htmlFile, "<a href=\"../index.html\">Home</a>\n");
     fprintf(htmlFile, "<a href=\"../AboutMe.html\">About me</a>\n");
     fprintf(htmlFile, "<a href=\"index.html\">Blog</a>\n");
-    fprintf(htmlFile, "<a href=\"../WIDU/index.html\">WIDU</a>\n");
-    fprintf(htmlFile, "<a href=\"../GIT.html\">Get in Touch</a>\n");
+    fprintf(htmlFile, "<a href=\"../Philosophy.html\">Philosophy</a>\n");
+    fprintf(htmlFile, "<a href=\"../Contact.html\">Contact</a>\n");
     fprintf(htmlFile, "<a href=\"../RSS.html\">RSS</a>\n");
     fprintf(htmlFile, "</nav>\n");
     fprintf(htmlFile, "</div>\n");
