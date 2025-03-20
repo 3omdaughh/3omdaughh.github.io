@@ -13,8 +13,9 @@ Check out [The blog-announcement](https://3omdaughh.github.io/Blog-Announcement.
 - HTML
 - CSS
 - C
+- Shell
 
-No frameworks or blog services were used to allow instantaneous loading times. C program used to create blog posts.
+No frameworks or blogging services were used, ensuring instant loading times. A C program was developed for creating blog posts, while a Shell script automates the uploading process. As a result, the website is now fully automated, allowing me to quickly write and publish blogs or update content effortlessly, significantly saving time.
 
 ## Usage
 Feel free to reuse any part of this code for your own projects. The source code is meant to be simple and easy to understand, not optimized for reusability.
