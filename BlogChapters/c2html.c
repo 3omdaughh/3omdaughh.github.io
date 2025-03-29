@@ -111,7 +111,6 @@ int main()
 	fprintf(htmlFile, "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
 
 	fprintf(htmlFile, "<div class=\"center-text\">\n<nav>\n");
-	fprintf(htmlFile, "<a href=\"../index.html\">Home</a>\n");
 	fprintf(htmlFile, "<a href=\"../AboutMe.html\">About me</a>\n");
 	fprintf(htmlFile, "<a href=\"index.html\">Blog</a>\n");
 	fprintf(htmlFile, "<a href=\"../Philosophy.html\">Philosophy</a>\n");
