@@ -4,14 +4,13 @@
 .bar { width: 100%; height: 5px; background: #3d9bff;}
 h1{margin-bottom: 20px;}
 body, td, p, pre, textarea, input, form, h1, h2, h3 { font-family: Monaco, monospace; }
-td, i {font-size: 14px;}
 body { background-color: #161616; color: #E8E8E8; max-width:700px; margin:40px auto; line-height:1.8; font-size:16px; padding:0 10px; }
-a { color: #3d9bff; text-decoration: underline; font-weight: bold; }
-a:active { color: #3d9bff; }
-a:visited { color: #2c70b8; }
+a:not(nav a){ color: #3d9bff; text-decoration: underline; font-weight: bold; }
+a:active:not(nav a){ color: #16A88A; }
+a:visited:not(nav a) { color: #14977C; }
 ::selection { background-color: #16A88A; color: #1E2229; }
 ::-moz-selection { background-color: #16A88A; color: #1E2229; }
- nav { background-color: #161616; overflow: hidden;}
- nav a { float: center; display: #16A88A; color: #3d9bff; text-align: center; padding: 10px 14px; text-decoration: none; font-size: 16px;}
+nav { background-color: #161616; overflow: hidden;}
+nav a { float: center; display: #16A88A; color: #3d9bff; text-align: center; padding: 10px 14px; text-decoration: none; font-size: 16px; font-weight: bold;}
+nav a:visited { color: #2C70B8;}
 nav a:hover { background-color: #161616; color: #16A88A;}
-
