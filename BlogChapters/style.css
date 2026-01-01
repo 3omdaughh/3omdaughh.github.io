@@ -11,6 +11,7 @@ a:visited { color: #2c70b8; }
 ::selection { background-color: #16A88A; color: #1E2229; }
 ::-moz-selection { background-color: #16A88A; color: #1E2229; }
 nav { background-color: #161616; overflow: hidden;}
+img { width: 100%;  }
 nav a { float: center; display: #16A88A; color: #3d9bff; text-align: center; padding: 10px 14px; text-decoration: none; font-size: 16px;}
 nav a:hover { background-color: #161616; color: #16A88A;}
 table
