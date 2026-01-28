@@ -27,6 +27,145 @@
 	Okayyy, so I realized talking about tech is gonna eat up way too much space on my <a href="../AboutMe.html">About Me</a> page. So, I decided to give it its <b><i>own</i></b> page - a dedicated little playground for all the tech I use. That way, anyone curious can just jump straight in without digging through my personal blog. Anywayyy, I think you get the idea… so let’s talk tech
 <br><br>
 <hr>
+<center>
+	<h2> Hardware I use</h2>
+</center>
+
+Let's start with the one that I spend most of my time with.
+<h3>Latitude E5470</h3>
+Is my main device that I run <a = href="https://archlinux.org/">Arch Linux</a> on it as my main operating system, and I use this device for studying, coding, all my academic staff, and of course for my personal use.
+<br>
+You may ask why <b>Arch</b> specifically?. so when I choose operating system to use as my main one it was based on several points:
+<ul>
+  <li>Kernel + core utils. NO PROGS. <b>(Base Image)</b></li>
+  <li>Open Source and Free</li>
+  <li>No Corp.</li>
+  <li>Does Not change UI/Look/Workflow</li>
+  <li>Does Not update and upgrade</li>
+  <li>Does Not Control Me</li>
+  <li>Customizable</li>
+  <li>Minimal Rolling Release</li>
+  <li>Easy to use <b>(Does Not mean easy to learn*)</b></li>
+</ul>
+Each point of them may take lots of pages to talk about so I mentioned the headlines only
+<br>
+	I think now you just figured it out why I choosed <b>Arch</b> cuz it is satisfied all points, and also I did not have any problems with <a href="https://en.wikipedia.org/wiki/Systemd">systemD</a> (till now) so it is all fine for me to use it instead going to <b>void</b>.
+<br>
+
+I use <b>dwl, foot, and wmenu</b>, deliberately following in the footsteps of <b>dwm, st, and dmenu.</b> out of a deep appreciation for the suckless philosophy. I value software that <b>stays small, predictable, and <i>honest about what it does</i>. Minimal storage, minimal CPU and memory usage, and minimal distractions.</b> A workflow that does exactly what I tell it to, and nothing more.
+
+<br>
+
+RIP <b>X11</b>, you served your time.
+
+<br>
+<h3>Ideapad 3</h3>
+This is my second device, which I use regularly. I have Windows installed on it for specific reasons, such as using tools and applications like Photoshop when needed for work or other purposes. Additionally, I use it occasionally to play League of Legends.<br>
+<h3>Galaxy Tab A 10.1</h3>
+This is the third and last device I use consistently. It is my school device, which I use exclusively for educational purposes, such as reading documents, accessing textbooks while studying, and similar tasks.
+<br>
+I’m also considering switching its operating system from Android to GrapheneOS, both for the experience and to enhance its security.<br>
+<br>
+<hr>
+<center>
+	<h2> Software I use </h2>
+</center>
+
+<h3><a href="https://wayland.freedesktop.org/">Wayland-based minimalist stack</a></h3>
+In pursuit of a lightweight, efficient, and distraction-free environment, I deliberately avoided full desktop environments such as GNOME, KDE Plasma, or even lightweight stacks like Xfce. Instead, I built my system around the <a href="https://wayland.freedesktop.org/">Wayland</a> display protocol, which provides a modern, secure, and low-latency alternative to the traditional <b>X server</b> model.
+<br><br>
+At the core of this setup is <a href="https://github.com/djpohly/dwl">dwl</a>, a dynamic tiling Wayland compositor inspired by <a href="https://dwm.suckless.org/">dwm</a>. dwl preserves the minimal philosophy of suckless tools while leveraging Wayland’s cleaner architecture. My configuration focuses strictly on functionality, with only essential patches and modifications applied to support my daily workflow.
+<br><br>
+
+<h3><a href="https://codeberg.org/adnano/wmenu">wmenu</a></h3>
+For simple user interaction, I use <b>wmenu</b>, a minimal Wayland-native menu program inspired by <a href = "https://tools.suckless.org/dmenu/">dmenu</a>. It integrates seamlessly with dwl and avoids any XWayland dependency, keeping the entire graphical stack purely Wayland-based.
+<br>
+I use wmenu primarily to trigger scripts, and present minimal selection menus. Its simplicity allows me to pipe shell output directly into it, making it an essential component in several automation workflows.
+<br><br>
+
+<h3><a href="https://codeberg.org/dnkl/foot">foot</a></h3>
+The terminal I choose in my setup is <b>foot</b>. It is a fast, lightweight, and Wayland-native terminal that aligns well with the minimalist design goals of my system. <br>
+Given that most of my interaction with the system happens through the terminal, foot serves as a central interface for my usage.
+<br><br>
+
+<h3><a href="https://www.vim.org/">vim</a></h3>
+vim is the editor I spend the majority of my time in. I use it as a complete working environment for programming, note-taking, configuration, and documentation. The modal editing paradigm allows me to operate efficiently with minimal context switching.
+<br>
+You can find my vim configuration at <b>.vim/vimrc</b> in my dotfiles.
+<br><br>
+
+<h3><a href="https://github.com/waycrate/swhkd">swhkd</a></h3>
+For managing global key bindings under Wayland, I use <b>swhkd</b>. swhkd is a Wayland-compatible hotkey daemon inspired by <a href="https://github.com/baskerville/sxhkd">sxhkd</a>, designed to work cleanly with compositors like dwl.
+<br>
+My key binding definitions are stored in <b>.config/swhkd/swhkdrc</b>.
+<br><br>
+
+<h3><a href="https://github.com/emersion/mako">mako</a></h3>
+System notifications are handled by <b>mako</b>, a lightweight notification daemon designed specifically for Wayland compositors. It provides unobtrusive, configurable notifications without pulling in large dependencies.
+<br><br>
+
+<h3>vim-<a href="https://www.latex-project.org/">LaTeX</a>-<a href="https://pwmt.org/projects/zathura/">zathura</a></h3>
+By combining these three tools, I've created a powerful solution for summarizing my lectures and managing my academic work. In essence, I use these tools for studying and taking notes.
+<br>
+You can find the source code for my plugins in the <b>.vim/ftplugin/tex.vim</b> file within my dotfiles. I wrote all these plugins myself. While there are many better options available online, I created them specifically to meet my needs and to be as minimal as possible, aligning with my goal of using the OS as I mentioned earlier.
+<br><br>
+
+<h3><a href="https://gnupg.org/">GnuPG</a> (GNU Privacy Guard)</h3>
+GnuPG is my go-to for locking down everything—emails, photos, backups—because privacy is just common sense. No shady middlemen, no bloated software, just pure control. I trust math over people, and encryption keeps my data mine.
+<br><br>
+
+<h3><a href="https://www.libreoffice.org/">LibreOffice</a> <i>(Docx, pptx, etc..)</i></h3>
+I use LibreOffice for my documents, but I don't use it to write DOCX files or create PDFs. Instead, I rely on Vim, LaTeX, and Zathura, as I mentioned earlier.
+<br><br>
+<hr>
+
+<center>
+	<h2> software I was using </h2>
+</center>
+
+<h3><a href="https://www.kali.org/">Kali Linux</a></h3>
+For penetration testing, security research, and offensive security workflows, I use <a href="https://www.kali.org/">Kali Linux</a> in its default configuration as provided by the official installer. I just used it for some educational purposes and returing back to arch. 
+<br><br>
+
+<h3><a href="https://www.xfce.org/">Xfce DE</a></h3>
+The default graphical environment in my Kali setup is <b>Xfce</b>. I use it as-is, as previously mentioned, since Kali was installed for a temporary period of time.<br><br>
+
+<h3><a href="https://docs.xfce.org/xfce/xfce4-terminal/start">Xfce Terminal</a></h3>
+The primary terminal emulator in this setup is <b>Xfce Terminal</b>. 
+<br><br>
+
+<h3><a href="https://docs.kali.org/general-use/kali-linux-tools">Preinstalled Kali tools</a></h3>
+One of the primary reasons for using Kali Linux is its extensive collection of preinstalled security tools. These tools are organized by category and tightly integrated into the system menus, allowing for quick discovery and execution.
+<br>
+The toolset includes, but is not limited to:
+<ul>
+  <li>Network scanning and enumeration tools</li>
+  <li>Web application testing frameworks</li>
+  <li>Exploitation and post-exploitation utilities</li>
+  <li>Wireless attack tools</li>
+  <li>Reverse engineering and binary analysis tools</li>
+</ul>
+This curated environment allows me to focus on methodology and analysis rather than installation and dependency management.
+<br><br>
+
+<h3><a href="https://suckless.org/">Suckless tools</a></h3>
+In an effort to minimize the use of my laptop's CPU and memory, I opted against using desktop environments such as Gnome, KDE Plasma, or even Xfce. Instead, I chose to implement a tiling window manager, specifically utilizing the <a href="https://www.x.org/wiki/">X server</a> with <a href="https://dwm.suckless.org/">dwm</a>, <a href="https://st.suckless.org/">st</a>, and <a href="https://tools.suckless.org/dmenu/">dmenu</a>, along with other efficient suckless tools. This decision was primarily driven by their simplicity and effectiveness. My system configuration is intentionally minimalistic, as I prioritize functionality over aesthetic customization. I rely solely on the terminal and dwm as my window manager, with dmenu to streamline certain tasks. Consequently, I have only applied a few necessary patches tailored to my specific use cases, aligning with my primary objective for using this operating system.
+<br><br>
+<h3><a href="https://github.com/baskerville/sxhkd">sxhkd</a></h3>
+For managing my system key bindings, I use <b><i>SXHKD</i></b>. If you don't know what <b><i>SXHKD</b></i> is, it's basically an X daemon that executes commands based on input events. This makes it pretty easy for me to do some things faster and execute scripts just by pressing a key. The integration between <b><i>SXHKD</b></i> and other tools in my system, like dmenu and xclip, provides me with a really powerful tool and improves my workflow.
+<br>
+If you want to have a look to my key bindings you can reach it here <b>.config/sxhkd/sxhkdrc</b> in my dotfiles.
+<br><br>
+<h3><a href="https://man.archlinux.org/man/xclip.1.en">xclip</a></h3>
+As anticipated, I utilize <b>xclip</b> as the clipboard manager for my system. For those unfamiliar, <b>xclip</b> is a command-line interface for X selections. I find it incredibly useful, especially when combined with <b>dmenu</b>, as it enables me to perform a variety of tasks efficiently.
+<br><br>
+<!---
+	Looks like you find the under construction spot xDDD
+	<h3>nnn (FZF)</h3>
+	NNN, FZF 
+	<br><br>
+----->
+<hr>
 <br>
 <span style="color:#808080"><i>This line means that the page is still under construction. </i><span>
     </div>

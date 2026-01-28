@@ -113,7 +113,7 @@ int main()
 	fprintf(htmlFile, "<div class=\"center-text\">\n<nav>\n");
 	fprintf(htmlFile, "<a href=\"../AboutMe.html\">About me</a>\n");
 	fprintf(htmlFile, "<a href=\"index.html\">Blog</a>\n");
-	fprintf(htmlFile, "<a href=\"../Philosophy.html\">Philosophy</a>\n");
+	fprintf(htmlFile, "<a href=\"../softwareIuse/index.html\">My Setup</a>\n");
 	fprintf(htmlFile, "<a href=\"../Contact.html\">Contact</a>\n");
 	//fprintf(htmlFile, "<a href=\"../RSS.html\">RSS</a>\n");
 	fprintf(htmlFile, "</nav>\n</div>\n");
