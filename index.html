@@ -1,33 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3omdaughh's Room</title>
-    <link rel="stylesheet" href="style.css">
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>3omdaughh's Room</title>
+	<meta name="description" content="3omda — systems, security, and the occasional 4am thought. Small honest software, minimal everything.">
+	<link rel="stylesheet" href="style.css">
+	<link rel="alternate" type="application/rss+xml" title="3omdaughh's Room" href="feed.xml">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230c0c0c'/%3E%3Ctext x='8' y='12' font-family='monospace' font-size='11' fill='%233d9bff' text-anchor='middle'%3E3%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-	<div class="center-text">
-	<nav>
-		<a href="AboutMe.html">About Me</a>
-		<a href="BlogChapters/index.html">Blog</a>
-		<a href="softwareIuse/index.html">My Setup</a>
-		<a href="Contact.html">Contact</a>
-	</nav>
-	</div>
-    <div class="container">
-	    <h1>Hi I'm 3omda-<span style ="color: #808080">[</span>^^<span style ="color: #808080">]</span>...</h1>
-	    Good software lets me sleep.<br>
-		<i>~ Michael W. Lucas</i>
-    </div>
-    <div class="bar"></div>
-    <div class="mainContainer" style="margin:2%;background-color:#1c1c1c;padding:5%;">
-I've been living a chaotic life, spending much time in a cluttered room and experiencing unexpected events. To share and document these experiences, I've created this website.
-<br><br>
-The goal of this website is to provide you with insights into my mind, allowing you to know more about me, understand my thought process, and of course recognize How cool I am XD
-    </div>
-    <div class="bar"> </div>
+<div class="layout">
+
+	<aside class="side">
+		<div class="side-inner">
+			<a class="brand" href="index.html">3omdaughh.log</a>
+			<div class="dashes">--</div>
+			<nav>
+				<a href="index.html" class="active">home</a>
+				<a href="AboutMe.html">about</a>
+				<a href="BlogChapters/index.html">blog</a>
+				<a href="softwareIuse/index.html">uses</a>
+				<a href="Contact.html">contact</a>
+			</nav>
+			<div class="side-foot">
+				<a href="feed.xml">RSS</a> /
+				<a href="https://github.com/3omdaughh/3omdaughh.github.io">src</a>
+			</div>
+		</div>
+	</aside>
+
+	<main>
+		<div class="page-head">
+			<h1>Hi.<br>People know me as 3omda.</h1>
+			<span class="uptime" id="uptime"></span>
+		</div>
+
+		<section class="hero">
+			<p>
+				I live in the terminal.<br>
+				I break things to understand them.<br>
+				Sometimes I write about ideas that refuse to stay quiet.
+			</p>
+			<p class="muted">
+				CS student. Systems, security, and everything low-level.<br>
+				Good software lets me sleep. <span class="faint">~ Michael W. Lucas</span>
+			</p>
+		</section>
+
+		<section>
+			<p class="label">Current obsessions</p>
+			<div class="tags">
+				<span>C &amp; systems</span>
+				<span>security / CTFs</span>
+				<span>network</span>
+				<span>minimalism</span>
+				<span>music</span>
+			</div>
+		</section>
+
+		<section>
+			<div class="cols">
+				<div>
+					<p class="label">Latest posts</p>
+					<ul class="list">
+						<li><a href="BlogChapters/Day_in_Emergency_Department.html">Day in Emergency Department</a><time>2026-04-17</time></li>
+						<li><a href="BlogChapters/Oh_How_We_Fell.html">Oh How We Fell</a><time>2026-01-01</time></li>
+						<li><a href="BlogChapters/Storms_Over_Scars_Stay.html">Storm&rsquo;s Over, Scars Stay</a><time>2025-06-14</time></li>
+						<li><a href="BlogChapters/Ive_had_enough.html">I've had enough</a><time>2025-04-19</time></li>
+						<li><a href="BlogChapters/WHYs__WHAT_IFs.html">WHYs &amp; WHAT IFs</a><time>2025-03-29</time></li>
+					</ul>
+					<p class="more"><a href="BlogChapters/index.html">View all posts &rarr;</a></p>
+				</div>
+				<div>
+					<p class="label">The stack</p>
+					<ul class="list">
+						<li><a href="softwareIuse/index.html">arch linux</a><span class="note">the base</span></li>
+						<li><a href="softwareIuse/index.html">dwl + foot + wmenu</a><span class="note">suckless spirit</span></li>
+						<li><a href="softwareIuse/index.html">vim</a><span class="note">the whole IDE</span></li>
+						<li><a href="softwareIuse/index.html">latex + zathura</a><span class="note">notes</span></li>
+						<li><a href="softwareIuse/index.html">gnupg</a><span class="note">trust math</span></li>
+					</ul>
+					<p class="more"><a href="softwareIuse/index.html">Full setup &rarr;</a></p>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<p class="label">Now</p>
+			<pre class="ps" id="ps"><span class="cmd">ps -T -p $(pidof 3omda)</span>
+<span class="hdr">  PID  STAT  THREAD</span>
+ 1337  <span class="st-r">R </span>   building: shell scripts + C tools <span class="faint">(to make my life easier)</span>
+ 1338  <span class="st-r">R </span>   sharpening: knowledge in security field
+ 1339  <span class="st-r">R </span>   grinding: pentesting labs &amp; CTFs
+ 1340  <span class="st-s">S </span>   reading: whatever feels intellectually fun
+ 1341  <span class="st-s">S </span>   listening: <a href="https://www.last.fm/user/X3omdaughh">last.fm/X3omdaughh</a>
+ 1342  <span class="st-d">D </span>   overthinking <span class="faint">(uninterruptible sleep)</span>
+<span class="loadavg">load average: too many threads, one core.
+the scheduler refuses to nice(1) any of these.</span></pre>
+		</section>
+
+	</main>
+
+</div>
+
+<script>
+/* uptime since the site went live: Sun, Jan 7 2024, 04:41:50 Cairo time */
+(function () {
+	var el = document.getElementById("uptime");
+	if (!el) return;
+	function tick() {
+		var s = Math.floor((Date.now() - Date.parse("2024-01-07T04:41:50+02:00")) / 1000);
+		var d = Math.floor(s / 86400),
+		    h = Math.floor(s % 86400 / 3600),
+		    m = Math.floor(s % 3600 / 60);
+		el.textContent = "uptime: " + d + "d " + h + "h " + m + "m";
+	}
+	tick();
+	setInterval(tick, 60000);
+})();
+
+/* one thread grabs the foreground on every visit — the rest keep running */
+(function () {
+	var running = document.querySelectorAll("#ps .st-r");
+	if (!running.length) return;
+	running[Math.floor(Math.random() * running.length)].textContent = "R+";
+})();
+</script>
 </body>
 </html>
-

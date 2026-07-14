@@ -1,33 +1,47 @@
 <!DOCTYPE html>
-<html lang ="en">
-	<head>
-		<meta name="viewport" content="width=device-width">
-		<meta charset="UTF-8">
-		<title> 3omdaughh's Blog</title>
-		<link rel="stylesheet" href="style.css">
-	</head>
-		<body>
-		<div class="center-text">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog — 3omdaughh</title>
+	<meta name="description" content="3omda's blog — unfiltered thoughts, existential debugging, life logs.">
+	<link rel="stylesheet" href="style.css">
+	<link rel="alternate" type="application/rss+xml" title="3omdaughh's Room" href="../feed.xml">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230c0c0c'/%3E%3Ctext x='8' y='12' font-family='monospace' font-size='11' fill='%233d9bff' text-anchor='middle'%3E3%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="layout">
+
+	<aside class="side">
+		<div class="side-inner">
+			<a class="brand" href="../index.html">3omdaughh.log</a>
+			<div class="dashes">--</div>
 			<nav>
-				<a href="../index.html">Home</a>
-				<a href="../AboutMe.html">About me</a>
-				<a href="../softwareIuse/index.html">My Setup</a>
-				<a href="../Contact.html">Contact</a>
+				<a href="../index.html">home</a>
+				<a href="../AboutMe.html">about</a>
+				<a href="index.html" class="active">blog</a>
+				<a href="../softwareIuse/index.html">uses</a>
+				<a href="../Contact.html">contact</a>
 			</nav>
+			<div class="side-foot">
+				<a href="../feed.xml">RSS</a> /
+				<a href="https://github.com/3omdaughh/3omdaughh.github.io">src</a>
+			</div>
 		</div>
-		<div class="container">
-			<h1>3omdaughh's Blog</h1>
-		</div>
-		<div class="bar"></div>
-		<div class="mainContaier" style="margin:2%;background-color:#1c1c1c; padding:5%;">
-		<!--
-			<span style="color:#808080"><i>No blogs uploaded yet.</i><span>
-		-->
-		<table>
-			<colgroup>
-				<col width="77%">
-			</colgroup>
-			<tbody>				<tr>
+	</aside>
+
+	<main>
+		<h1>Blog</h1>
+		<p class="muted">
+			Subscribe via <a href="../feed.xml">RSS</a>.
+		</p>
+
+		<section>
+			<table>
+				<colgroup>
+					<col width="77%">
+				</colgroup>
+				<tbody>				<tr>
 					<td class="title">
 						<a href="Day_in_Emergency_Department.html">Day in Emergency Department</a>
 					</td>
@@ -39,10 +53,9 @@
 					</td>
 					<td><i>Thu, Jan 01.2026</i></td>
 				</tr>
-	
 				<tr>
 					<td class="title">
-						<a href="Storms_Over_Scars_Stay.html">Storm’s Over, Scars Stay</a>
+						<a href="Storms_Over_Scars_Stay.html">Storm&rsquo;s Over, Scars Stay</a>
 					</td>
 					<td><i>Sat, Jun 14.2025</i></td>
 				</tr>
@@ -52,10 +65,9 @@
 					</td>
 					<td><i>Sat, Apr 19.2025</i></td>
 				</tr>
-
 				<tr>
 					<td class="title">
-						<a href="WHYs__WHAT_IFs.html">WHYs & WHAT IFs</a>
+						<a href="WHYs__WHAT_IFs.html">WHYs &amp; WHAT IFs</a>
 					</td>
 					<td><i>Sat, Mar 29.2025</i></td>
 				</tr>
@@ -69,21 +81,20 @@
 					<td class="title">
 						<a href="Am_I_enough!_Am_I%3F.html">Am I enough.! Am I?</a>
 					</td>
-					<td>
-						<i>Sun, Jan 28.2024</i>
-					</td>
+					<td><i>Sun, Jan 28.2024</i></td>
 				</tr>
 				<tr>
 					<td class="title">
 						<a href="../Blog-Announcement.html">Blog-Announcement!</a>
 					</td>
-					<td> 
-						<i>Sun, Jan 7.2024</i>
-					</td>
+					<td><i>Sun, Jan 7.2024</i></td>
 				</tr>
-			</tbody>
-		</table>
-		</div>
-		<div class="bar"></div>
-	</body>
+				</tbody>
+			</table>
+		</section>
+
+	</main>
+
+</div>
+</body>
 </html>

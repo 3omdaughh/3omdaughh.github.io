@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>3omdaughh's Room</title>
+<link>https://3omdaughh.github.io/</link>
+<description>Unfiltered logs from 3omda's head — systems, security, and what it costs to be a person.</description>
+<language>en</language>
+<atom:link href="https://3omdaughh.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+<!-- posts -->
+<item>
+<title>Day in Emergency Department</title>
+<link>https://3omdaughh.github.io/BlogChapters/Day_in_Emergency_Department.html</link>
+<guid>https://3omdaughh.github.io/BlogChapters/Day_in_Emergency_Department.html</guid>
+<pubDate>Fri, 17 Apr 2026 00:00:00 +0200</pubDate>
+<description>A week orbiting hospitals, and what the emergency department peels back about how casually we treat what we'd beg to keep.</description>
+</item>
+<item>
+<title>Oh How We Fell</title>
+<link>https://3omdaughh.github.io/BlogChapters/Oh_How_We_Fell.html</link>
+<guid>https://3omdaughh.github.io/BlogChapters/Oh_How_We_Fell.html</guid>
+<pubDate>Thu, 01 Jan 2026 00:00:00 +0200</pubDate>
+<description>No update, no lesson, no redemption arc. Just thoughts spilling because keeping them contained started to cost more than letting them out.</description>
+</item>
+<item>
+<title>Storm's Over, Scars Stay</title>
+<link>https://3omdaughh.github.io/BlogChapters/Storms_Over_Scars_Stay.html</link>
+<guid>https://3omdaughh.github.io/BlogChapters/Storms_Over_Scars_Stay.html</guid>
+<pubDate>Sat, 14 Jun 2025 00:00:00 +0200</pubDate>
+<description>After the storm passes, what stays.</description>
+</item>
+<item>
+<title>I've had enough</title>
+<link>https://3omdaughh.github.io/BlogChapters/Ive_had_enough.html</link>
+<guid>https://3omdaughh.github.io/BlogChapters/Ive_had_enough.html</guid>
+<pubDate>Sat, 19 Apr 2025 00:00:00 +0200</pubDate>
+<description>Enough of burnout, of failure, of the mind that never shuts up.</description>
+</item>
+<item>
+<title>WHYs &amp; WHAT IFs</title>
+<link>https://3omdaughh.github.io/BlogChapters/WHYs__WHAT_IFs.html</link>
+<guid>https://3omdaughh.github.io/BlogChapters/WHYs__WHAT_IFs.html</guid>
+<pubDate>Sat, 29 Mar 2025 00:00:00 +0200</pubDate>
+<description>The questions that loop at night.</description>
+</item>
+<item>
+<title>Not seem like before</title>
+<link>https://3omdaughh.github.io/BlogChapters/Not_seem_like_before.html</link>
+<guid>https://3omdaughh.github.io/BlogChapters/Not_seem_like_before.html</guid>
+<pubDate>Thu, 20 Mar 2025 00:00:00 +0200</pubDate>
+<description>Things changed, quietly.</description>
+</item>
+<item>
+<title>Am I enough.! Am I?</title>
+<link>https://3omdaughh.github.io/BlogChapters/Am_I_enough!_Am_I%3F.html</link>
+<guid>https://3omdaughh.github.io/BlogChapters/Am_I_enough!_Am_I%3F.html</guid>
+<pubDate>Sun, 28 Jan 2024 00:00:00 +0200</pubDate>
+<description>The question that's been stuck since childhood: always playing catch-up, always the underdog.</description>
+</item>
+<item>
+<title>Blog-Announcement!</title>
+<link>https://3omdaughh.github.io/Blog-Announcement.html</link>
+<guid>https://3omdaughh.github.io/Blog-Announcement.html</guid>
+<pubDate>Sun, 07 Jan 2024 04:41:50 +0200</pubDate>
+<description>Hello-World! Pure HTML/CSS, under 10kb, a C program that writes the posts. How this site got built.</description>
+</item>
+</channel>
+</rss>

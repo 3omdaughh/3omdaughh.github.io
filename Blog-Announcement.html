@@ -1,73 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog-Announcement</title>
-    <link rel="stylesheet" href="style.css">
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog-Announcement! — 3omdaughh</title>
+	<meta name="description" content="How this site got built: pure HTML/CSS, under 10kb, a C program to generate posts.">
+	<link rel="stylesheet" href="style.css">
+	<link rel="alternate" type="application/rss+xml" title="3omdaughh's Room" href="feed.xml">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230c0c0c'/%3E%3Ctext x='8' y='12' font-family='monospace' font-size='11' fill='%233d9bff' text-anchor='middle'%3E3%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-	<div class="center-text">
-	<nav>
-		<a href="AboutMe.html">About Me</a>
-		<a href="BlogChapters/index.html">Blog</a>
-		<a href="softwareIuse/index.html">My Setup</a>
-		<a href="Contact.html">Contact</a>
-	</nav>
-	</div>
-    <div class="container">
-	    <h1>Blog-Announcement!</h1>
-    </div>
-    <div class="bar"></div>
-    <div class="mainContainer" style="margin:2%;background-color:#1c1c1c;padding:5%;">
-    <div class="center-text">
-	    <h2>Hello-World!</h2>
-I'm thrilled to announce that I'll be launching my personal blog. I had intended to start this blog a year and a half ago, but I consistently delayed it, largely due to being engrossed in playing league 24/7, but now it's time to embark on this new journey!
-<br><br><hr>
-<h3>More details about blog<i>(inspiration, initiation, etc..)</i></h3>
-<h4>Inspiration.</h4>
-I'm genuinely inspired by <a href="https://512kb.club/">512kb-Club</a>.I realized that Js is useless shit if I want to create a personal blog. 
-Additionally, I preferred to avoid employing frameworks due to their excessive complexity and limited utility. Moreover, I aim for the entire system to remain straightforward for ease of maintenance.
-<br>
-So, I decided to make a pure HTML, CSS website and be cool, simple and sleek as I want.
-<br><br>
-<b>Intention.</b>
-<ul>
-  <li>Make it simple as much as I can.</li>
-  <li>Be less than 10kb.</li>
-  <li>Use pure HTML, CSS without any framework or JS.</li>
-  <li>Do the whole website between exams days (just joke xD).</li>
-</ul>
-<br><br><hr>
-<h4>Initiation.</h4>
-I began my journey by exploring various blogs for inspiration, drawing insights from them all. Subsequently, put my [3omda-ughh] signature, after all end up with me creating this badass website.
-<br>
-TBH I extremely sparked from a dear friend to me called tokhy (love u bro <3)  and other german guy I know from reddit. I merged his blog with tokhy blog and out with mine.
-<br>
-Furthermore, I opted for GitHub Pages due to its simplified deployment process.
-<br>
-After completing the aforementioned steps and testing it out, everything is functioning smoothly. Later on, as I pondered a more convenient approach to compose my blog posts, the realization struck that crafting an entire HTML file from scratch for each post demanded considerable effort. 
-<br>
- and you know my laziness, and that will make posting a single blog seem impossible for me xD. So what I do was creating a C program that take only title and content from me and it will do all the work for me.
-<br>
-This idea is really good to me cuz this will make doing blogs easier and easier.
-<br><br><hr>
-<h4>Execution.</h4>
-I've accomplished every goal, and the uncompressed size of the website's foundation was just 9KB. Used only HTML, CSS.
-<br><br>
-Honestly, it was enjoyable. I dedicated an hour each day over the last two weeks to work on a portion of this task. I'm genuinely pleased with the project; it achieved its straightforward goal.
-<br>
-I don't think I will do lots of changes to this website, maybe what I will do is to write some blogs and share them with some real Homies.
-<br>
-Finally, if you want to see the source code you can find it <a href="https://github.com/3omdaughh/3omdaughh.github.io">here</a>.
-<br>
-And have a nice day :D.
-<br><br>
-<span style="color:#808080"><i>Finished at Sun, Jan 7, 2024 4:41:50 A.M</i><span>
-    </div>
-    </div>
-    <div class="bar"> </div>
+<div class="layout">
+
+	<aside class="side">
+		<div class="side-inner">
+			<a class="brand" href="index.html">3omdaughh.log</a>
+			<div class="dashes">--</div>
+			<nav>
+				<a href="index.html">home</a>
+				<a href="AboutMe.html">about</a>
+				<a href="BlogChapters/index.html" class="active">blog</a>
+				<a href="softwareIuse/index.html">uses</a>
+				<a href="Contact.html">contact</a>
+			</nav>
+			<div class="side-foot">
+				<a href="feed.xml">RSS</a> /
+				<a href="https://github.com/3omdaughh/3omdaughh.github.io">src</a>
+			</div>
+		</div>
+	</aside>
+
+	<main>
+		<article>
+			<h1>Blog-Announcement!</h1>
+			<p class="date">Sun, Jan 7, 2024</p>
+
+			<div class="post-body">
+			<h2>Hello-World!</h2>
+			<p>
+				I'm thrilled to announce that I'll be launching my personal blog. I had
+				intended to start this blog a year and a half ago, but I consistently
+				delayed it, largely due to being engrossed in playing league 24/7 — but
+				now it's time to embark on this new journey!
+			</p>
+			<hr>
+			<h3>More details about blog <i>(inspiration, initiation, etc..)</i></h3>
+
+			<h4>Inspiration.</h4>
+			<p>
+				I'm genuinely inspired by <a href="https://512kb.club/">512kb-Club</a>.
+				I realized that JS is useless shit if I want to create a personal blog.
+				Additionally, I preferred to avoid employing frameworks due to their
+				excessive complexity and limited utility. Moreover, I aim for the entire
+				system to remain straightforward for ease of maintenance.
+			</p>
+			<p>
+				So, I decided to make a pure HTML, CSS website and be cool, simple and
+				sleek as I want.
+			</p>
+			<p><b>Intention.</b></p>
+			<ul>
+				<li>Make it simple as much as I can.</li>
+				<li>Be less than 10kb.</li>
+				<li>Use pure HTML, CSS without any framework or JS.</li>
+				<li>Do the whole website between exams days (just joke xD).</li>
+			</ul>
+			<hr>
+			<h4>Initiation.</h4>
+			<p>
+				I began my journey by exploring various blogs for inspiration, drawing
+				insights from them all. Subsequently, put my [3omda-ughh] signature,
+				after all end up with me creating this badass website.
+			</p>
+			<p>
+				TBH I extremely sparked from a dear friend to me called tokhy (love u
+				bro &lt;3) and other german guy I know from reddit. I merged his blog
+				with tokhy blog and out with mine.
+			</p>
+			<p>
+				Furthermore, I opted for GitHub Pages due to its simplified deployment
+				process.
+			</p>
+			<p>
+				After completing the aforementioned steps and testing it out, everything
+				is functioning smoothly. Later on, as I pondered a more convenient
+				approach to compose my blog posts, the realization struck that crafting
+				an entire HTML file from scratch for each post demanded considerable
+				effort.
+			</p>
+			<p>
+				And you know my laziness — that would make posting a single blog seem
+				impossible for me xD. So what I did was create a C program that takes
+				only title and content from me, and it does all the work for me.
+			</p>
+			<p>
+				This idea is really good to me cuz this will make doing blogs easier
+				and easier.
+			</p>
+			<hr>
+			<h4>Execution.</h4>
+			<p>
+				I've accomplished every goal, and the uncompressed size of the website's
+				foundation was just 9KB. Used only HTML, CSS.
+			</p>
+			<p>
+				Honestly, it was enjoyable. I dedicated an hour each day over the last
+				two weeks to work on a portion of this task. I'm genuinely pleased with
+				the project; it achieved its straightforward goal.
+			</p>
+			<p>
+				I don't think I will do lots of changes to this website — maybe what I
+				will do is write some blogs and share them with some real Homies.
+			</p>
+			<p>
+				Finally, if you want to see the source code you can find it
+				<a href="https://github.com/3omdaughh/3omdaughh.github.io">here</a>.
+			</p>
+			<p>And have a nice day :D.</p>
+			<p class="date"><i>Finished at Sun, Jan 7, 2024 4:41:50 A.M</i></p>
+			</div>
+		</article>
+
+		<footer class="foot">
+			<a href="BlogChapters/index.html">&larr; All posts</a>
+		</footer>
+	</main>
+
+</div>
 </body>
 </html>
-
