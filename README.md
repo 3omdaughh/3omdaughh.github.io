@@ -4,10 +4,14 @@
 Welcome to my Room, this is personal website/blog, hosted on GitHub Pages. The website features a clean, simple and fast loading times.
 Check out [The blog-announcement](https://3omdaughh.github.io/Blog-Announcement.html) for more information about the project.
 
-## Goal
-- Provide you with insights into my mind
-- Allowing you to know more about me
-- Understanding my thought process
+## Features
+- Minimalist and clean design, dark mode only
+- Fast loading times with no frameworks and no external requests
+- Easy maintenance using a C program and shell scripts
+- Plain-text writing workflow for blog posts
+- Static webpages for improved security and performance
+- RSS feed
+- Self-hosted fonts with no ads and no trackers
 
 ## Tech Stack
 - HTML
