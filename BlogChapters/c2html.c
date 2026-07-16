@@ -149,7 +149,7 @@ int main()
 		"\t<title>%s — 3omdaughh</title>\n"
 		"\t<link rel=\"stylesheet\" href=\"style.css\">\n"
 		"\t<link rel=\"alternate\" type=\"application/rss+xml\" title=\"3omdaughh's Room\" href=\"../feed.xml\">\n"
-		"\t<link rel=\"icon\" href=\"data:image/svg+xml,%%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%%3E%%3Crect width='16' height='16' fill='%%230c0c0c'/%%3E%%3Ctext x='8' y='12' font-family='monospace' font-size='11' fill='%%233d9bff' text-anchor='middle'%%3E3%%3C/text%%3E%%3C/svg%%3E\">\n"
+		"\t<link rel=\"icon\" type=\"image/png\" href=\"../favicon.png\">\n"
 		"</head>\n"
 		"<body>\n"
 		"<div class=\"layout\">\n\n"
