@@ -5,6 +5,8 @@
 #include <ctype.h>
 
 #define MAX_FILENAME 150
+#define MAX_HOME_POSTS 5
+#define HOME_INDEX "../index.html"
 
 static const char *SITE_URL = "https://3omdaughh.github.io";
 
@@ -89,6 +91,79 @@ void update_index_html(const char *filename, const char *title, const char *date
 		printf("Updated index.html with new blog entry at the top.\n");
 }
 
+/* keep at most `max` <li> items in the list that follows `marker` */
+static int trim_list(const char *path, const char *marker, int max)
+{
+	char *content = slurp(path);
+	if (!content)
+	{
+		printf("Error opening %s\n", path);
+		return 1;
+	}
+
+	char *pos = strstr(content, marker);
+	char *end = pos ? strstr(pos, "</ul>") : NULL;
+	if (!end)
+	{
+		free(content);
+		return 1;
+	}
+	pos += strlen(marker);
+
+	/* walk to the first <li> past the limit; nothing to do if it isn't there */
+	char *li = pos;
+	for (int n = 0; n <= max; n++)
+	{
+		li = strstr(li, "<li>");
+		if (!li || li >= end)
+		{
+			free(content);
+			return 0;
+		}
+		if (n < max)
+			li += 4;
+	}
+
+	/* drop the leading whitespace of the cut item and keep the one before </ul> */
+	char *cut = li;
+	while (cut > pos && isspace((unsigned char)cut[-1]))
+		cut--;
+
+	char *tail = end;
+	while (tail > pos && isspace((unsigned char)tail[-1]))
+		tail--;
+
+	FILE *out = fopen(path, "w");
+	if (!out)
+	{
+		printf("Error writing to %s\n", path);
+		free(content);
+		return 1;
+	}
+
+	fwrite(content, 1, cut - content, out);
+	fputs(tail, out);
+	fclose(out);
+	free(content);
+	return 0;
+}
+
+void update_home_index(const char *filename, const char *title,
+                       const char *iso_date)
+{
+	char row[1024];
+	snprintf(row, sizeof(row),
+		"\n\t\t\t\t\t\t<li><a href=\"BlogChapters/%s\">%s</a>"
+		"<time>%s</time></li>",
+		filename, title, iso_date);
+
+	if (insert_after_marker(HOME_INDEX, "<!-- latest -->", row) == 0)
+	{
+		trim_list(HOME_INDEX, "<!-- latest -->", MAX_HOME_POSTS);
+		printf("Updated %s with new blog entry at the top.\n", HOME_INDEX);
+	}
+}
+
 void update_feed_xml(const char *filename, const char *title,
                      const char *rfc822_date)
 {
@@ -114,8 +189,9 @@ int main()
 	char filename[MAX_FILENAME];
 	time_t t = time(NULL);
 	struct tm *tm_info = localtime(&t);
-	char date[50], rfc822[64];
+	char date[50], rfc822[64], iso[16];
 	strftime(date, sizeof(date), "%a, %b %d.%Y", tm_info);
+	strftime(iso, sizeof(iso), "%Y-%m-%d", tm_info);
 	strftime(rfc822, sizeof(rfc822), "%a, %d %b %Y %H:%M:%S %z", tm_info);
 
 	printf("Enter Blog title: ");
@@ -200,6 +276,7 @@ int main()
 
 	printf("Blog post saved as: %s\n", filename);
 	update_index_html(filename, title, date);
+	update_home_index(filename, title, iso);
 	update_feed_xml(filename, title, rfc822);
 
 	free(title);
