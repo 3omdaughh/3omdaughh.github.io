@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>3omdaughh's Room — tech</title>
+<link>https://3omdaughh.github.io/tech/</link>
+<description>Technical writing from 3omda: systems, security, CTFs, and tools.</description>
+<language>en</language>
+<atom:link href="https://3omdaughh.github.io/tech/feed.xml" rel="self" type="application/rss+xml"/>
+<!-- posts -->
+</channel>
+</rss>
