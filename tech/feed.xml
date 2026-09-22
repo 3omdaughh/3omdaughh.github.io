@@ -7,5 +7,12 @@
 <language>en</language>
 <atom:link href="https://3omdaughh.github.io/tech/feed.xml" rel="self" type="application/rss+xml"/>
 <!-- posts -->
+<item>
+<title>rawhttp: an HTTP client that sends exactly what you tell it</title>
+<link>https://3omdaughh.github.io/tech/rawhttp_an_HTTP_client_that_sends_exactly_what_you_tell_it.html</link>
+<guid>https://3omdaughh.github.io/tech/rawhttp_an_HTTP_client_that_sends_exactly_what_you_tell_it.html</guid>
+<pubDate>Tue, 22 Sep 2026 16:07:35 +0300</pubDate>
+<description>rawhttp: an HTTP client that sends exactly what you tell it</description>
+</item>
 </channel>
 </rss>
