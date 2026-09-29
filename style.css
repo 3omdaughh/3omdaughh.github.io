@@ -24,6 +24,37 @@
 	font-display: swap;
 }
 
+/* Arabic — Thmanyah (font.thmanyah.com), free for personal + commercial use.
+   unicode-range keeps Latin on JetBrains Mono; only Arabic codepoints
+   pull these files, so non-Arabic pages never download them. */
+@font-face {
+	font-family: "Thmanyah Sans";
+	src: url("fonts/thmanyah-sans-400.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200F,
+	               U+FB50-FDFF, U+FE70-FEFF;
+}
+@font-face {
+	font-family: "Thmanyah Sans";
+	src: url("fonts/thmanyah-sans-700.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200F,
+	               U+FB50-FDFF, U+FE70-FEFF;
+}
+@font-face {
+	font-family: "Thmanyah Serif Display";
+	src: url("fonts/thmanyah-serif-display-400.woff2") format("woff2");
+	font-weight: 400 900;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200F,
+	               U+FB50-FDFF, U+FE70-FEFF;
+}
+
 /* ---------- tokens ---------- */
 :root {
 	--bg:       #0c0c0c;
@@ -36,8 +67,10 @@
 	--accent-2: #5f8fc4;
 	--mark-bg:  #16a88a;
 	--mark-fg:  #0c0c0c;
-	--mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Menlo, Monaco,
-	        "DejaVu Sans Mono", monospace;
+	--mono: "JetBrains Mono", "Thmanyah Sans", ui-monospace, "Cascadia Code",
+	        Menlo, Monaco, "DejaVu Sans Mono", monospace;
+	--display: "JetBrains Mono", "Thmanyah Serif Display", "Thmanyah Sans",
+	           ui-monospace, "DejaVu Sans Mono", monospace;
 }
 
 /* ---------- base ---------- */
@@ -61,7 +94,7 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 a:visited { color: var(--accent-2); }
 
-h1, h2, h3, h4 { line-height: 1.35; margin: 2.2em 0 0.6em; }
+h1, h2, h3, h4 { font-family: var(--display); line-height: 1.35; margin: 2.2em 0 0.6em; }
 h1 { font-size: 1.25rem; margin-top: 0; }
 h2 { font-size: 1rem; }
 h3 { font-size: 0.95rem; }
@@ -256,6 +289,43 @@ section:last-of-type { border-bottom: none; }
 }
 .post-body pre code { background: none; border: 0; padding: 0; font-size: inherit; }
 
+/* ---------- arabic / RTL ---------- */
+/* :lang(ar) matches the element itself and anything under it, so a single
+   lang="ar" on a <p>, a <main> or <html> is enough. :dir(rtl) covers an
+   explicit dir="rtl" the same way; it sits inside :is() so browsers that
+   do not know it ignore that one argument, not the whole rule. */
+:lang(ar), :dir(rtl) {
+	direction: rtl;
+	text-align: right;
+	line-height: 2;
+}
+
+:is(ul, ol):is(:lang(ar), :dir(rtl)) {
+	padding-left: 0;
+	padding-right: 1.4em;
+}
+
+blockquote:is(:lang(ar), :dir(rtl)) {
+	padding: 0 1em 0 0;
+	border-left: 0;
+	border-right: 2px solid var(--border);
+}
+
+.side:is(:lang(ar), :dir(rtl)) {
+	border-right: 0;
+	border-left: 1px solid var(--border);
+	padding-right: 0;
+	padding-left: 28px;
+}
+
+
+/* code, tables and the uptime line stay LTR inside RTL text */
+:is(pre, code, .ps, table, .uptime):is(:lang(ar), :dir(rtl)) {
+	direction: ltr;
+	text-align: left;
+	unicode-bidi: isolate;
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 760px) {
 	.layout {
@@ -269,6 +339,7 @@ section:last-of-type { border-bottom: none; }
 		padding: 0 0 18px;
 		margin-bottom: 22px;
 	}
+	[dir="rtl"] .side, [lang="ar"] .side { border-left: none; padding-left: 0; }
 	.side-inner { position: static; }
 	.side nav { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; }
 	.side-foot { display: none; }
