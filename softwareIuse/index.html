@@ -129,6 +129,17 @@
 				central interface of my usage.
 			</p>
 
+			<h3><a href="https://tools.suckless.org/slstatus/">slstatus</a></h3>
+			<p>
+				The status bar, if it even deserves the word. slstatus runs in stdout mode
+				and gets piped straight into the compositor —
+				<b>slstatus -s | dwl -s ...</b> — so the entire "bar" is one process
+				writing text into another. No tray, no widgets, no plugin ecosystem, no
+				JSON protocol invented by someone having a rough week. Clock, battery, and
+				the three things I actually look at. Everything else I can read in a
+				terminal like an adult.
+			</p>
+
 			<h3><a href="https://www.vim.org/">vim</a></h3>
 			<p>
 				The editor I spend the majority of my time in — a complete working
@@ -136,6 +147,33 @@
 				Modal editing lets me operate with minimal context switching. Config lives
 				at <b>.vim/vimrc</b> in my
 				<a href="https://github.com/3omdaughh/.dotfiles">dotfiles</a>.
+			</p>
+
+			<h3><a href="https://github.com/tmux/tmux">tmux</a></h3>
+			<p>
+				Panes and sessions that outlive whatever I do to the terminal. My config is
+				six lines, and most of them exist to fix exactly one thing: foot's terminfo
+				does not advertise sixel, so tmux quietly refuses to pass image escapes
+				through until you tell it twice —
+				<b>set -as terminal-features ',foot*:sixel'</b> and
+				<b>allow-passthrough on</b>. That is the whole reason images render inside
+				nnn instead of turning my file manager into abstract art.
+			</p>
+
+			<h3><a href="https://github.com/jarun/nnn">nnn</a></h3>
+			<p>
+				File manager that starts instantly and gets out of the way, built from
+				source with my own patch on top. My opener script has one rule, and it is
+				not negotiable: <b>nnn must never be replaced</b>. Text opens in a tmux
+				pane beside it. GUI viewers get detached completely — new session, no tty,
+				no stdio — so dwl tiles them without ever corrupting the TUI underneath.
+			</p>
+			<p>
+				Previews run side by side through <b>preview-tui</b>, images go through
+				<a href="https://github.com/hpjansson/chafa">chafa</a> in sixel,
+				<a href="https://github.com/sharkdp/bat">bat</a> handles code, fzf handles
+				jumping, and deletions go to trash — I am arrogant, not reckless. Config
+				lives in <b>.config/nnn/</b>, opener included.
 			</p>
 
 			<h3><a href="https://github.com/waycrate/swhkd">swhkd</a></h3>
@@ -152,6 +190,16 @@
 				and no heavy dependencies pulled in.
 			</p>
 
+			<h3><a href="https://sr.ht/~emersion/grim/">grim</a> + <a href="https://github.com/emersion/slurp">slurp</a></h3>
+			<p>
+				Screenshots, decomposed the way Unix intended: slurp selects a region, grim
+				captures it, done. Two small scripts wire them together — one pipes the PNG
+				into <b>wl-copy</b> for the clipboard, the other drops a numbered file into
+				<b>~/Pictures/Screenshots</b> — and mako confirms it happened. No built-in
+				editor, no cloud upload, no account, no "sign in to continue sharing your
+				own screen".
+			</p>
+
 			<h3>vim - <a href="https://www.latex-project.org/">LaTeX</a> - <a href="https://pwmt.org/projects/zathura/">zathura</a></h3>
 			<p>
 				These three combined are my studying and note-taking pipeline — summarizing
@@ -159,6 +207,23 @@
 				<b>.vim/ftplugin/tex.vim</b> in my dotfiles. I wrote all of it myself:
 				there are better options online, but mine do exactly what I need and
 				nothing more, which is the whole point.
+			</p>
+
+			<h3><a href="https://newsboat.org/">newsboat</a></h3>
+			<p>
+				RSS in the terminal, vim keybindings, around twenty feeds. The algorithm is
+				simple: I subscribed to it, so it appears. Groundbreaking. No
+				recommendations, no engagement optimisation, no feed quietly deciding I
+				need to be angry today. This site ships a feed for precisely the same
+				reason.
+			</p>
+
+			<h3><a href="https://irssi.org/">irssi</a></h3>
+			<p>
+				IRC, because parts of the internet got it right in 1988 and then the
+				industry spent thirty years re-implementing it worse, with an Electron
+				wrapper and a 400 MB memory floor. Plain text, plain protocol, runs inside
+				tmux, survives disconnects. Config at <b>.irssi/</b>.
 			</p>
 
 			<h3><a href="https://gnupg.org/">GnuPG</a> (GNU Privacy Guard)</h3>
@@ -169,50 +234,98 @@
 				data mine.
 			</p>
 
+			<h3><a href="https://www.passwordstore.org/">pass</a> + <a href="https://github.com/cruegge/pam-gnupg">pam-gnupg</a></h3>
+			<p>
+				My password manager is a directory of GPG-encrypted files and a shell
+				script. One secret per file under <b>.password-store</b>, versionable with
+				git, and readable with nothing but <b>gpg</b> if pass vanished tomorrow.
+				No proprietary vault format, no subscription, no apologetic breach
+				notification email at 2am.
+			</p>
+			<p>
+				pam-gnupg is the piece that hands my passphrase to the GPG agent at login,
+				so unlocking the machine unlocks the keyring in the same motion. The module
+				is installed; wiring it into the PAM stack is still sitting on my to-do
+				list, where it has been for a while.
+			</p>
+
+			<h3>My own GPG wrappers</h3>
+			<p>
+				GnuPG is a good engine attached to an interface apparently designed to
+				punish curiosity. Nobody remembers
+				<b>--symmetric --cipher-algo AES256 --output</b> at 3am. So I wrote short
+				shell wrappers and put them in <b>.local/bin</b>:
+			</p>
+			<ul>
+				<li><b>genc</b> / <b>gdec</b> — encrypt and decrypt files or whole
+					directories (a directory becomes <b>.tar.gz.gpg</b>), symmetric by
+					default, <b>-r</b> when I want public-key to a recipient instead</li>
+				<li><b>gsign</b> / <b>gverify</b> — detached <b>.asc</b> signatures for
+					things I publish or receive</li>
+				<li><b>gvault</b> — edit an encrypted file in $EDITOR with the plaintext
+					living only in <b>/run/user/$UID</b> (tmpfs, RAM-backed) and wiped on
+					exit, so it never touches the disk</li>
+				<li><b>gpg-init</b> — build a modern identity: ed25519 certify-only
+					primary, separate sign / encrypt / auth subkeys on a two-year
+					rotation</li>
+				<li><b>gpg-backup</b> — export secret keys, public keys, ownertrust and
+					revocation certificates into one encrypted archive</li>
+			</ul>
+			<p>
+				Better-engineered options exist. Mine do exactly what I need and nothing
+				else, which — as established — is the entire point.
+			</p>
+
+			<h3><a href="https://github.com/Duncaen/OpenDoas">opendoas</a></h3>
+			<p>
+				sudo is a large C program with a plugin API, LDAP support, an audit
+				subsystem and a CVE history to match. I wanted to run one command as root.
+				doas is a few thousand lines and a config file you can read in a single
+				breath, which means I can actually audit the thing standing between my user
+				and root. Aliased down to <b>i</b> and <b>u</b>, because typing the full
+				thing forty times a day is not a personality.
+			</p>
+
+			<h3><a href="https://www.qemu.org/">QEMU</a> + <a href="https://libvirt.org/">libvirt</a> + <a href="https://virt-manager.org/">virt-manager</a></h3>
+			<p>
+				Where everything I do not trust goes. KVM acceleration under QEMU, libvirtd
+				managing the domains, OVMF for UEFI guests, and virt-manager for the rare
+				occasions I would rather click than type. Malware samples, target boxes,
+				a stranger's "just run this script bro", a Windows install that needs to
+				exist and nothing further — all of it behind a virtual NIC I can unplug.
+			</p>
+			<p>
+				Snapshots are the real feature: a bad afternoon costs a revert instead of a
+				reinstall. It is also why Kali stopped being my host OS. I ran it for a
+				while, learned what it had to teach, and concluded that installing someone
+				else's tool selection as an operating system is a strange way to own a
+				machine. The tools live on Arch now, chosen one at a time, and anything
+				untrustworthy lives in a domain I can delete.
+			</p>
+
+			<h3>Fonts</h3>
+			<p>
+				<a href="https://www.jetbrains.com/lp/mono/">JetBrains Mono</a>, Nerd Font
+				patched, size 12, bold — in foot, which means in vim, tmux, nnn and
+				everything else I live in, and serving this very page too. Consistency is
+				free and I refuse to context-switch typefaces.
+			</p>
+			<p>
+				Arabic is <a href="https://font.thmanyah.com/">Thmanyah</a>: sans for body
+				text, serif display for headings. A fontconfig rule at
+				<b>.config/fontconfig/conf.d/75-thmanyah-arabic.conf</b> normalises the
+				family names, because the foundry shipped faces called
+				<i>"Thmanyah sans 1.2 Med"</i> and similar crimes against string matching.
+				Same two families are self-hosted here, so Arabic on this site renders the
+				way it renders on my machine.
+			</p>
+
 			<h3><a href="https://www.libreoffice.org/">LibreOffice</a> <i>(docx, pptx, etc..)</i></h3>
 			<p>
 				For opening documents other people send me. For producing my own, it's
 				vim + LaTeX + zathura, as above.
 			</p>
-		</section>
 
-		<section>
-			<p class="label">Software I was using</p>
-
-			<h3><a href="https://www.kali.org/">Kali Linux</a></h3>
-			<p>
-				For penetration testing, security research, and offensive security
-				workflows I ran Kali in its default configuration, straight from the
-				official installer. Used it for educational purposes, then returned
-				to Arch.
-			</p>
-			<p>
-				The main draw is the preinstalled toolset, organized by category and
-				integrated into the system menus: network scanning and enumeration, web
-				application testing frameworks, exploitation and post-exploitation
-				utilities, wireless attack tools, reverse engineering and binary analysis.
-				A curated environment that lets me focus on methodology and analysis
-				instead of installation and dependency management.
-			</p>
-
-			<h3><a href="https://suckless.org/">Suckless tools (X11 era)</a></h3>
-			<p>
-				Before Wayland, the same philosophy on the
-				<a href="https://www.x.org/wiki/">X server</a>:
-				<a href="https://dwm.suckless.org/">dwm</a>,
-				<a href="https://st.suckless.org/">st</a>, and
-				<a href="https://tools.suckless.org/dmenu/">dmenu</a>. Intentionally
-				minimal configuration, functionality over aesthetics, only the patches my
-				workflow actually required.
-			</p>
-
-			<h3><a href="https://github.com/baskerville/sxhkd">sxhkd</a> + <a href="https://man.archlinux.org/man/xclip.1.en">xclip</a></h3>
-			<p>
-				sxhkd handled my key bindings on X — an X daemon that executes commands on
-				input events, which made scripts one keypress away. Combined with dmenu and
-				xclip (CLI for X selections) it was a genuinely powerful workflow.
-				Bindings were at <b>.config/sxhkd/sxhkdrc</b> in my dotfiles.
-			</p>
 		</section>
 
 	</main>
