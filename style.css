@@ -80,6 +80,7 @@ html { scrollbar-color: var(--border) var(--bg); }
 
 body {
 	margin: 0;
+	overflow-wrap: break-word;
 	background: var(--bg);
 	color: var(--fg);
 	font-family: var(--mono);
@@ -118,7 +119,7 @@ blockquote {
 }
 
 code, pre { font-family: var(--mono); }
-pre { overflow-x: auto; }
+pre { overflow-x: auto; max-width: 100%; }
 
 table { border-collapse: collapse; width: 100%; }
 tr { border-bottom: 1px solid var(--border); }
@@ -141,7 +142,7 @@ td:last-child i { font-style: normal; }
 	padding: 56px 28px 40px;
 }
 
-main { max-width: 700px; }
+main { max-width: 700px; min-width: 0; }
 
 /* ---------- sidebar ---------- */
 .side { border-right: 1px solid var(--border); padding-right: 28px; }
@@ -181,9 +182,10 @@ main { max-width: 700px; }
 /* ---------- shared page bits ---------- */
 .page-head {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: baseline;
-	gap: 16px;
+	gap: 4px 16px;
 	margin-bottom: 8px;
 }
 
@@ -233,20 +235,22 @@ section:last-of-type { border-bottom: none; }
 .list { list-style: none; margin: 0; padding: 0; }
 .list li {
 	display: flex;
+	align-items: baseline;
 	justify-content: space-between;
 	gap: 14px;
 	margin: 0 0 10px;
 	font-size: 0.88rem;
 }
-.list li::before { content: "\2192\00a0"; color: var(--faint); }
-.list li a { color: var(--fg); flex: 1; }
+.list li::before { content: "\2192\00a0"; color: var(--faint); flex: 0 0 auto; }
+.list li a { color: var(--fg); flex: 1 1 auto; min-width: 0; }
 .list li a:hover { color: var(--accent); }
-.list li time, .list li .note { color: var(--faint); font-size: 0.78rem; white-space: nowrap; }
+.list li time, .list li .note { color: var(--faint); font-size: 0.78rem; white-space: nowrap; flex: 0 0 auto; }
 .more { font-size: 0.82rem; }
 
 /* ---------- index: now ---------- */
 .ps {
 	margin: 0;
+	max-width: 100%;
 	font-size: 0.8rem;
 	line-height: 1.9;
 	color: var(--dim);
@@ -259,6 +263,10 @@ section:last-of-type { border-bottom: none; }
 .ps .st-s { color: var(--faint); }
 .ps .st-d { color: var(--mark-bg); }
 .ps .loadavg { color: var(--faint); font-style: italic; }
+
+/* ---------- index: closing note ---------- */
+.ethos { border-bottom: none; }
+.ethos p { margin: 0; }
 
 /* ---------- footer ---------- */
 .foot {
@@ -329,7 +337,10 @@ blockquote:is(:lang(ar), :dir(rtl)) {
 /* ---------- responsive ---------- */
 @media (max-width: 760px) {
 	.layout {
-		grid-template-columns: 1fr;
+		/* minmax(0, 1fr), not 1fr: a bare 1fr floors at the column's
+		   min-content width, so one wide <pre> stretched the whole page
+		   past the viewport and forced a pinch-zoom. */
+		grid-template-columns: minmax(0, 1fr);
 		padding: 28px 18px 32px;
 		gap: 0;
 	}
@@ -339,7 +350,7 @@ blockquote:is(:lang(ar), :dir(rtl)) {
 		padding: 0 0 18px;
 		margin-bottom: 22px;
 	}
-	[dir="rtl"] .side, [lang="ar"] .side { border-left: none; padding-left: 0; }
+	.side:is(:lang(ar), :dir(rtl)) { border-left: none; padding-left: 0; }
 	.side-inner { position: static; }
 	.side nav { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; }
 	.side-foot { display: none; }
@@ -348,4 +359,21 @@ blockquote:is(:lang(ar), :dir(rtl)) {
 	.ps { font-size: 0.68rem; }
 	.list li time { font-size: 0.72rem; }
 	body { font-size: 14.5px; }
+
+	/* nothing may set its own width floor on a phone */
+	main { max-width: 100%; }
+	.post-body pre { font-size: 0.76rem; padding: 10px 12px; }
+	.tags span { font-size: 0.74rem; }
+
+	/* date column shrinks rather than wrapping mid-date; the title
+	   column takes the remaining width and wraps */
+	td:last-child { font-size: 0.72rem; }
+	td.title { padding-right: 10px; }
+}
+
+/* very narrow phones (iPhone SE and below) */
+@media (max-width: 400px) {
+	.layout { padding: 22px 14px 28px; }
+	.side nav { gap: 4px 12px; }
+	.post-body pre { font-size: 0.72rem; }
 }
