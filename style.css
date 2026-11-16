@@ -1,5 +1,5 @@
 /* 3omdaughh.github.io — dark, mono, minimal.
-   One stylesheet for the whole site. Subdirectories @import this file. */
+   One stylesheet for the whole site. Subdirectory pages link ../style.css. */
 
 /* ---------- font ---------- */
 @font-face {
@@ -250,11 +250,9 @@ section:last-of-type { border-bottom: none; }
 /* ---------- index: now ---------- */
 .ps {
 	margin: 0;
-	max-width: 100%;
 	font-size: 0.8rem;
 	line-height: 1.9;
 	color: var(--dim);
-	overflow-x: auto;
 }
 .ps .cmd { color: var(--fg); }
 .ps .cmd::before { content: "$ "; color: var(--faint); }
@@ -265,7 +263,6 @@ section:last-of-type { border-bottom: none; }
 .ps .loadavg { color: var(--faint); font-style: italic; }
 
 /* ---------- index: closing note ---------- */
-.ethos { border-bottom: none; }
 .ethos p { margin: 0; }
 
 /* ---------- footer ---------- */
@@ -300,8 +297,7 @@ section:last-of-type { border-bottom: none; }
 /* ---------- arabic / RTL ---------- */
 /* :lang(ar) matches the element itself and anything under it, so a single
    lang="ar" on a <p>, a <main> or <html> is enough. :dir(rtl) covers an
-   explicit dir="rtl" the same way; it sits inside :is() so browsers that
-   do not know it ignore that one argument, not the whole rule. */
+   explicit dir="rtl" the same way. */
 :lang(ar), :dir(rtl) {
 	direction: rtl;
 	text-align: right;
