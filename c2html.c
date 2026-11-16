@@ -193,10 +193,10 @@ void update_home_index(const struct section *sec, const char *filename,
 
 void update_feed_xml(const char *feed, const struct section *sec,
                      const char *filename, const char *title,
-                     const char *rfc822_date)
+                     const char *desc, const char *rfc822_date)
 {
-	char item[2048];
-	snprintf(item, sizeof(item),
+	char item[4096];
+	int n = snprintf(item, sizeof(item),
 		"\n<item>\n"
 		"<title>%s</title>\n"
 		"<link>%s/%s/%s</link>\n"
@@ -205,7 +205,12 @@ void update_feed_xml(const char *feed, const struct section *sec,
 		"<description>%s</description>\n"
 		"</item>",
 		title, SITE_URL, sec->dir, filename, SITE_URL, sec->dir, filename,
-		rfc822_date, title);
+		rfc822_date, desc);
+	if (n < 0 || (size_t)n >= sizeof(item))
+	{
+		printf("Error: RSS item too long, %s not updated\n", feed);
+		return;
+	}
 
 	if (insert_after_marker(feed, "<!-- posts -->", item) == 0)
 		printf("Updated %s with new RSS item.\n", feed);
@@ -223,6 +228,19 @@ static void write_escaped(FILE *out, const char *s, size_t len)
 		default:  fputc(s[i], out);
 		}
 	}
+}
+
+/* malloc'd copy of s, escaped for use as HTML/XML text; NULL on failure */
+static char *escape_dup(const char *s)
+{
+	char *buf = NULL;
+	size_t len = 0;
+	FILE *mem = open_memstream(&buf, &len);
+	if (!mem)
+		return NULL;
+	write_escaped(mem, s, strlen(s));
+	fclose(mem);
+	return buf;
 }
 
 /* blog.txt -> post body. Plain lines are raw HTML joined with <br>,
@@ -332,6 +350,34 @@ int main(int argc, char **argv)
 	}
 	title[strcspn(title, "\n")] = 0;
 	sanitize_filename(title, filename);
+	if (strcmp(filename, ".html") == 0)
+	{
+		fputs("Error: title has no ASCII letters or digits to build a filename from\n", stderr);
+		free(title);
+		return 1;
+	}
+
+	/* the title goes into HTML and RSS as text, so escape it once here */
+	char *raw_title = title;
+	title = escape_dup(raw_title);
+	free(raw_title);
+	if (!title)
+	{
+		printf("Error: out of memory\n");
+		return 1;
+	}
+
+	/* one-line feed description; empty input or EOF falls back to the title */
+	char *line = NULL, *desc = NULL;
+	size_t line_size = 0;
+	printf("Enter feed description (empty = title): ");
+	if (getline(&line, &line_size, stdin) > 0)
+	{
+		line[strcspn(line, "\n")] = 0;
+		if (*line)
+			desc = escape_dup(line);
+	}
+	free(line);
 
 	snprintf(path, sizeof(path), "%s/blog.txt", sec->dir);
 	char *text = slurp(path);
@@ -339,6 +385,7 @@ int main(int argc, char **argv)
 	{
 		printf("Error: Could not open %s\n", path);
 		free(title);
+		free(desc);
 		return 1;
 	}
 
@@ -348,6 +395,7 @@ int main(int argc, char **argv)
 	{
 		printf("Error opening %s for writing.\n", path);
 		free(title);
+		free(desc);
 		free(text);
 		return 1;
 	}
@@ -361,7 +409,7 @@ int main(int argc, char **argv)
 		"\t<meta charset=\"UTF-8\">\n"
 		"\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
 		"\t<title>%s — 3omdaughh</title>\n"
-		"\t<link rel=\"stylesheet\" href=\"style.css\">\n"
+		"\t<link rel=\"stylesheet\" href=\"../style.css\">\n"
 		"\t<link rel=\"alternate\" type=\"application/rss+xml\" title=\"3omdaughh's Room\" href=\"%s\">\n"
 		"\t<link rel=\"icon\" type=\"image/png\" href=\"../favicon.png\">\n"
 		"</head>\n"
@@ -418,14 +466,15 @@ int main(int argc, char **argv)
 	printf("Post saved as: %s\n", path);
 	update_index_html(sec, filename, title, date);
 	update_home_index(sec, filename, title, iso);
-	update_feed_xml(SITE_FEED, sec, filename, title, rfc822);
+	update_feed_xml(SITE_FEED, sec, filename, title, desc ? desc : title, rfc822);
 	if (sec->feed)
 	{
 		snprintf(path, sizeof(path), "%s/%s", sec->dir, sec->feed);
-		update_feed_xml(path, sec, filename, title, rfc822);
+		update_feed_xml(path, sec, filename, title, desc ? desc : title, rfc822);
 	}
 
 	free(title);
+	free(desc);
 	free(text);
 	return 0;
 }

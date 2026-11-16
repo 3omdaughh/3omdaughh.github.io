@@ -32,7 +32,7 @@ The site is dark-mode only, typeset in a self-hosted JetBrains Mono (no external
 ## Writing a post
 1. Build the generator once from the repo root: `gcc -o output c2html.c`
 2. Put the post body in `tech/blog.txt` or `BlogChapters/blog.txt`
-3. From the repo root run `./output tech` or `./output log`, then enter the title — the post page, section index, homepage list, and feed(s) are all updated
+3. From the repo root run `./output tech` or `./output log`, then enter the title and a one-line feed description (leave it empty to reuse the title) — the post page, section index, homepage list, and feed(s) are all updated
 4. Run `./dep.sh` to publish
 
 In `blog.txt`, lines are raw HTML joined with `<br>`. `` `inline code` `` is escaped into `<code>`, and lines between ```` ``` ```` fences (optionally ```` ```c ````) become an escaped `<pre><code>` block.
