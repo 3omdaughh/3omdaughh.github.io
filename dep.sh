@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Get the commit description
 read -p "Commit: " Commit_des
