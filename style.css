@@ -24,6 +24,20 @@
 	font-display: swap;
 }
 
+/* Box drawing + arrows (─│┌┐└┘┼═▼► …) for ASCII diagrams. The main
+   JetBrains Mono files are Latin-only subsets, so without this browsers
+   (iOS especially) fell back to a font with different glyph widths and
+   the diagram borders drifted out of line. Same family name, same
+   600/1000 advance, pulled only when one of these codepoints appears. */
+@font-face {
+	font-family: "JetBrains Mono";
+	src: url("fonts/jetbrains-mono-box.woff2") format("woff2");
+	font-weight: 400 700;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+2190-21FF, U+2500-259F, U+25A0-25FF;
+}
+
 /* Arabic — Thmanyah (font.thmanyah.com), free for personal + commercial use.
    unicode-range keeps Latin on JetBrains Mono; only Arabic codepoints
    pull these files, so non-Arabic pages never download them. */
@@ -293,6 +307,9 @@ section:last-of-type { border-bottom: none; }
 	tab-size: 4;
 }
 .post-body pre code { background: none; border: 0; padding: 0; font-size: inherit; }
+/* diagrams: box glyphs span ascent+descent (1.32em), so a taller line
+   leaves gaps in every vertical │ run */
+.post-body pre:has(> code.language-text) { line-height: 1.32; }
 
 /* ---------- arabic / RTL ---------- */
 /* :lang(ar) matches the element itself and anything under it, so a single
