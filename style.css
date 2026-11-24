@@ -311,6 +311,45 @@ section:last-of-type { border-bottom: none; }
    leaves gaps in every vertical │ run */
 .post-body pre:has(> code.language-text) { line-height: 1.32; }
 
+/* ---------- contact: pgp key ---------- */
+.key {
+	margin: 0;
+	border: 1px solid var(--border);
+	background: var(--bg-alt);
+}
+.key figcaption {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 2px 16px;
+	padding: 8px 14px;
+	border-bottom: 1px solid var(--border);
+	font-size: 0.78rem;
+	color: var(--faint);
+}
+.key .fp { flex-basis: 100%; }
+.key .fp code { color: var(--dim); }
+/* armor lines are 64 chars, wider than a phone: pre-wrap + break-all wrap
+   them evenly on screen while copied text keeps the original line breaks.
+   user-select: all turns one click or tap into "select the whole key". */
+.key pre {
+	margin: 0;
+	padding: 12px 14px;
+	max-height: 24em;
+	overflow-y: auto;
+	font-size: 0.72rem;
+	line-height: 1.5;
+	color: var(--dim);
+	white-space: pre-wrap;
+	word-break: break-all;
+	-webkit-user-select: all;
+	user-select: all;
+}
+.key pre:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
+.key-hint { margin: 10px 0 0; font-size: 0.78rem; color: var(--faint); }
+.key-hint code { display: block; color: var(--dim); overflow-wrap: anywhere; }
+
 /* ---------- arabic / RTL ---------- */
 /* :lang(ar) matches the element itself and anything under it, so a single
    lang="ar" on a <p>, a <main> or <html> is enough. :dir(rtl) covers an
